@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "PhanLoaiSanPham";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using QLMuaBanNem.Models;
+@model List<SanPham>
+
+<div class="khung">
+    <div>
+        <h4>Sản Phẩm</h4>
+    </div>
+    @foreach (var item in Model)
+    {       
+        <div class="item">
+            <table style="width: 230px; height: auto; text-align: center">
+                <tr>
+                    <td><a href="@Url.Action("HienThiChiTiet", "Home", new { ms = item.MaSanPham })">
+                        <img src="~/Content/HinhAnh/@item.HinhAnh" width="230" height="170"/></a></td>
+                </tr>
+                <tr style="height: 70px; text-align: inherit">
+                    <td>
+                        <p><b>@item.TenSanPham</b></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p><b style="color: #f00">Giá: </b>@item.GiaBan VNĐ</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="@Url.Action("HienThiChiTiet", "Home", new { ms = @item.MaSanPham })">
+                            <input class="btn btn-success" type="button" name="btnChiTiet" value="Chi tiết" /></a>
+                        <a href="@Url.Action("themGioHang", "GioHang", new { ms = @item.MaSanPham })">
+                            <input class="btn btn-warning" type="button" name="btnDatMua" value="Đặt mua" /></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    }
+</div>
+

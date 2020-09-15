@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "HienThiLoai";
+}
+@using QLMuaBanNem.Models
+@model List<Loai>
+<div class="dropdown-content" style="background-color:#fff">
+    @foreach (var item in Model)
+    {
+        <a class="nav-link" href="@Url.Action("PhanLoaiSanPham", "Home", new { maLoai = @item.MaLoai })"><b>@item.TenLoai</b></a>
+    }
+</div>

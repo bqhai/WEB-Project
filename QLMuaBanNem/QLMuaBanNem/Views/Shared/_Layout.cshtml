@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <script src="https://kit.fontawesome.com/a4721ab8e7.js" crossorigin="anonymous"></script>
+    <link href="~/Content/myStyle.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Content/jquery-3.3.1.min.js"></script>
+    <link href="~/Content/sb-admin-2.css" rel="stylesheet" />
+    <link href="~/Content/sb-admin-2.min.css" rel="stylesheet" />
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="container-fluid nav bg-info">
+        <div class="container bg-info">
+            <div class="row">
+                <div class="col-7">
+                    <ul class="nav mr-auto">
+                        <li class="nav-item"><a class="nav-link" style="color: #ffffff; margin-top: 6px" href="@Url.Action("TrangChu", "Home")">TRANG CHỦ</a></li>                      
+                        <li class="nav-item"><a class="nav-link" style="color: #ffffff; margin-top: 6px" href="@Url.Action("SanPham", "Home")">SẢN PHẨM</a></li>
+                        <li class="nav-item"><a class="nav-link" style="color: #ffffff; margin-top: 6px" href="@Url.Action("GioiThieu", "Home")">GIỚI THIỆU</a></li>
+                        <li class="nav-item"><a class="nav-link" style="color: #ffffff; margin-top: 6px" href="@Url.Action("LienHe", "Home")">LIÊN HỆ</a></li>
+                    </ul>
+                </div>
+                <div class="col-5 form-inline">
+                    @using (Html.BeginForm("TimKiem", "Home", FormMethod.Get))
+                    {
+                        <form class="form-inline my-2">
+                            <input class="form-control mr-sm-2" type="text" style="width: 200px; margin-left:180px" name="txtSearch" placeholder="Bạn tìm mua gì?" />
+                            <button class="btn btn-outline-default" type="submit" name="btnSearch" style="color: #ffffff"><i class="fas fa-search"></i><span></span></button>
+                            @*<input class="btn btn-primary" type="submit" name="btnSearch" value="Search"/>*@
+                        </form>
+                    }
+                </div>
+            </div>
+    </div>
+    </div>
+
+    <form class="container">
+        <img src="~/Content/HinhAnh/AnhBia.PNG" class="d-block w-100" />
+        <div class="row">
+            <div class="menuDangNhap">
+                <button class="btn btn-warning" style="margin-left: 750px"><i class="fas fa-shopping-cart"></i><span></span><a href="@Url.Action("XemGioHang", "GioHang")">Giỏ Hàng (@Session["SoLuongSPTrongGio"])</a></button>
+                @if (Session["TaiKhoanKH"] == null)
+                {
+                    <a href="@Url.Action("DangNhap", "Home")">
+                        <input class="btn btn-warning" type="button" name="btnDangNhap" value="Đăng nhập" /></a>
+                    <a href="@Url.Action("DangKy")">
+                        <input class="btn btn-warning" type="button" name="btnDangKy" value="Đăng ký" /></a>
+                }
+                else
+                {
+                    @*<ul style="list-style:none">
+                        <li>Xin chào: @Session["TaiKhoanKH"], </li>
+                        <li>@Html.ActionLink("Đăng xuất", "DangXuat", "Home")</li>
+                    </ul>*@                  
+                    <a>Xin chào: @Session["TaiKhoanKH"], </a>
+                    <a>@Html.ActionLink("Đăng xuất", "DangXuat", "Home")</a>
+                }
+            </div>
+        </div>
+        <div>
+            <p>------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+        </div>
+    </form>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <ul class="nav flex-column">                  
+                    @Html.Action("HienThiThuongHieu", "Home")
+                </ul>
+            </div>
+            <div class="col-md-9">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-info">
+        <div class="container bg-info d-block w-100">
+            <div class="row">
+
+                <div class="col-6" style="color: #ffffff">
+                    <b style="font: 300; color: #ffd800">Công ty TNHH Thương mại dịch vụ HPH</b>
+                    <br />
+                    <b>Địa chỉ:</b> 140 Lê Trọng Tấn, Phường Tây Thạnh, Quận Tân Phú, TP.HCM
+                    <br />
+                    <b>Điện thoại:</b> 0123456789
+                    <br />
+                    <b>Email:</b> thegioinem@gmail.com
+                </div>
+                <div class="col-2">
+                    @*<img src="~/Content/HinhAnh/logo.png"/>*@
+                </div>
+                <div class="col-4" style="color: #dadada">
+                    <a style="font: 300; color: #ffd800"><i>CopyRight@2019</i> </a>Website Mua Bán Nệm
+                    <br />
+                    <a href="https://www.facebook.com/profile.php?id=100021703582663" type="text/plain"><i class="fab fa-facebook" style="font-size: -webkit-xxx-large" aria-hidden="true"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100021703582663" type="text/plain"><i class="fab fa-facebook-messenger" style="font-size: -webkit-xxx-large" aria-hidden="true"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100021703582663" type="text/plain"><i class="fab fa-youtube" style="font-size: -webkit-xxx-large" aria-hidden="true"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100021703582663" type="text/plain"><i class="fab fa-instagram" style="font-size: -webkit-xxx-large" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

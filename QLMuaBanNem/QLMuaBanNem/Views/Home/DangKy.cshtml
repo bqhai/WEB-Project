@@ -1,0 +1,191 @@
+﻿@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (TempData["XLDangKy"] != null)
+{ 
+    <script type="text/javascript">
+        alert("@TempData["XLDangKy"]");
+    </script>
+}
+<h4>Đăng ký tài khoản</h4>
+<form action="@Url.Action("XLDangKy")" method="post">
+@*    <div class="form-inline my-2">
+        <label>Tên đăng nhập</label>
+        <input class="form-control mr-sm-2" style="width: 200px" type="text" name="username" placeholder="User Name">
+    </div>
+    <div class="form-inline my-2">
+        <label>Mật khẩu</label>
+        <input class="form-control mr-sm-2" style="width: 200px" type="password" name="password" placeholder="Password">
+    </div>
+    <div class="form-inline my-2">
+        <label>Nhập lại mật khẩu</label>
+        <input class="form-control mr-sm-2" style="width: 200px" type="password" name="repassword" placeholder="Rewrite Password">
+    </div>
+    <div class="form-group">
+        <label>Họ và Tên</label>
+        <input type="text" name="name" placeholder="Your Name">
+    </div>
+    <div class="form-group">
+        <label>Ngày sinh</label>
+        <input type="date" name="birthday">
+    </div>
+    <div class="form-group">
+        <label>Giới tính  </label>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" name="sex" value="Nam" checked>
+            <label class="form-check-label" for="gridcheck">Nam </label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" name="sex" value="Nữ">
+            <label class="form-check-label" for="gridcheck">Nữ </label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input type="tel" name="email" placeholder="Email">
+    </div>
+    <div class="form-group">
+        <label>Địa chỉ</label>
+        <input type="text" name="address" placeholder="Address">
+    </div>
+    <button type="submit" class="btn btn-black">Xác nhận</button>*@
+
+    <table>
+        <tr>
+            <td>
+                <label>Tên đăng nhập</label>
+            </td>
+            <td>
+                <input class="form-control mr-sm-2" style="width: 200px" type="text" name="username" placeholder="User Name">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Mật khẩu</label>
+            </td>
+            <td>
+                <input class="form-control mr-sm-2" style="width: 200px" type="password" name="password" placeholder="Password">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Nhập lại mật khẩu</label>
+            </td>
+            <td>
+                <input class="form-control mr-sm-2" style="width: 200px" type="password" name="repassword" placeholder="Rewrite Password">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Họ và Tên</label>
+            </td>
+            <td>
+                <input class="form-control mr-sm-2" style="width: 200px" type="text" name="name" placeholder="Your Name">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Ngày sinh</label>
+            </td>
+            <td>
+                <input class="form-control mr-sm-2" style="width: 200px" type="date" name="birthday">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Giới tính</label>
+            </td>
+            <td>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" name="sex" value="Nam" checked>
+                    <label class="form-check-label" for="gridcheck">Nam </label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" name="sex" value="Nữ">
+                    <label class="form-check-label" for="gridcheck">Nữ </label>
+                </div>
+            </td>
+        </tr>
+         <tr>
+            <td>
+                <label>Email</label>
+            </td>
+            <td>
+                <input class="form-control mr-sm-2" style="width: 200px" type="tel" name="email" placeholder="Email">
+            </td>
+        </tr>
+         <tr>
+            <td>
+                <label>Địa chỉ</label>
+            </td>
+            <td>
+                <input class="form-control mr-sm-2" style="width: 200px" type="text" name="address" placeholder="Address">
+            </td>
+        </tr>
+        <tr>
+            <td><br /></td>
+            <td><button type="submit" class="btn btn-primary">Xác nhận</button></td>
+        </tr>
+    </table>
+    @*<button type="submit" formaction="@Url.Action("DangNhap", "KhachHang")" class="btn btn-secondary">Quay lại đăng nhập</button>*@
+</form>
+@*<body>
+    <div class="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                            </div>
+                            <form class="user">
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="First Name">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Last Name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address">
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repeat Password">
+                                    </div>
+                                </div>
+                                <a href="login.html" class="btn btn-primary btn-user btn-block">Register Account
+                </a>
+                                <hr>
+                                <a href="index.html" class="btn btn-google btn-user btn-block">
+                                    <i class="fab fa-google fa-fw"></i>Register with Google
+                </a>
+                                <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                    <i class="fab fa-facebook-f fa-fw"></i>Register with Facebook
+                </a>
+                            </form>
+                            <hr>
+                            <div class="text-center">
+                                <a class="small" href="forgot-password.html">Forgot Password?</a>
+                            </div>
+                            <div class="text-center">
+                                <a class="small" href="login.html">Already have an account? Login!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>*@

@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "ThemSanPhamADMIN";
+    Layout = "~/Views/Shared/_LayoutPageADMIN.cshtml";
+}
+<form action="@Url.Action("themSanPham")" method="post">
+    <ul>
+        <li>
+            <input type="text" name="txtMaSanPham" /></li>
+        <li>
+            <input type="text" name="txtTenSanPham" /></li>
+        <li>
+            <input type="text" name="txtMoTa" /></li>
+        <li>
+            <input type="text" name="txtGiaBan" /></li>
+        <li>
+            <input type="text" name="txtSoLuongTon" /></li>
+        <li>
+            <input type="text" name="txtHinhAnh" /></li>
+        <li>
+            <input type="text" name="txtLoai" /></li>
+    </ul>
+    <button type="submit">them</button>
+</form>

@@ -1,0 +1,97 @@
+﻿@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (TempData["LoiDangNhap"] != null)
+{ 
+    <script type="text/javascript">
+        alert("@TempData["LoiDangNhap"]");
+    </script>
+}
+<h4>Đăng Nhập</h4>
+<div class="row justify-content-center">
+    <div class="col-xl-10 col-lg-12 col-md-9">
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                    <div class="col-lg-6">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                            </div>
+                            <form class="user" action="@Url.Action("XLDangNhap")" method="post">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control form-control-user" name="txtTaiKhoan" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Account...">
+                                    </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control form-control-user" name="txtPassword" id="exampleInputPassword" placeholder="Password">
+                                </div>
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox small">
+                                        <input type="checkbox" class="custom-control-input" id="customCheck">
+                                        <label class="custom-control-label" for="customCheck">Remember Me</label>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
+                                <hr>
+                                <a href="#" class="btn btn-facebook btn-user btn-block">
+                                    <i class="fab fa-facebook-f fa-fw"></i>Login with Facebook
+                                </a>
+                            </form>
+
+                            <hr>
+                            <div class="text-center">
+                                <a class="small" href="@Url.Action("QuenMatKhau")">Forgot Password?</a>
+                            </div>
+                            <div class="text-center">
+                                <a class="small" href="@Url.Action("DangKy")">Create an Account!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<div class="login-box">
+        @using (Html.BeginForm())
+        {
+            <div class="login-heading">
+                <h4>HandBooks Store - Admin CP</h4>
+            </div>
+            <div class="login-body">
+                <div class="form-group">
+                    <label class="control-label">Username</label>
+                    <input value="@ViewBag.Username" type="text" required="required" name="Username" id="Username" placeholder="Username" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Password</label>
+                    <input value="@ViewBag.Password" type="password" required="required" name="Password" id="Password" placeholder="Password" class="form-control" />
+                </div>
+            </div>
+            <div class="login-footer">
+                <button type="submit">Login</button>
+                <a href="/">Back to Homepage</a>
+            </div>
+            <p class="text-danger">
+                @ViewBag.Error
+            </p>
+        }
+    </div>*@
+
+@*<form action="@Url.Action("XuLyDangNhap","KhachHang")" method="post">
+                  <div class="form-group">
+                     <label>Tên đăng nhập</label>
+                     <input type="text" class="form-control" name="userName" placeholder="User Name">
+                  </div>
+                  <div class="form-group">
+                     <label>Mật khẩu</label>
+                     <input type="password" class="form-control" name="passWord" placeholder="Password">
+                  </div>
+                  <button type="submit" class="btn btn-black">Đăng nhập</button>
+                  <button type="submit" class="btn btn-secondary" formaction="@Url.Action("DangKy","KhachHang")">Đăng ký</button>
+               </form>*@

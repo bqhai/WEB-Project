@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "DatHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using QLMuaBanNem.Models
+@model KhachHang
+
+@*<form>
+    <ul>
+        <li>Ten kh: @Model.HoTen</li>
+    </ul>
+    <ul>
+        <li>Ngay sinh: @Model.NgaySinh</li>
+    </ul>
+    <ul>
+        <li>Gioi tinh: @Model.GioiTinh</li>
+    </ul>
+    <ul>
+        <li>Email: @Model.Email</li>
+    </ul>
+    <ul>
+        <li>Diachi: @Model.DiaChi</li>
+    </ul>
+</form>*@
+<h5>Xác Nhận Thanh Toán</h5>
+<table>
+    <tr>
+        <td><p><b>Họ Tên: </b></p></td>
+        <td><p>@Model.HoTen</p></td>
+    </tr>
+    <tr>
+        <td><p><b>Ngày sinh: </b></p></td>
+        <td><p>@Model.NgaySinh</p></td>
+    </tr>
+    <tr>
+        <td><p><b>Giới tính: </b></p></td>
+        <td><p>@Model.GioiTinh</p></td>
+    </tr>
+    <tr>
+        <td><p><b>Email: </b></p></td>
+        <td><p>@Model.Email</p></td>
+    </tr>
+    <tr>
+        <td><p><b>Địa chỉ: </b></p></td>
+        <td><p>@Model.DiaChi</p></td>
+    </tr>
+    <tr>
+        <td><p><b>Số tiền:</b></p></td>
+        <td><p>@ViewBag.TongTien VNĐ</p></td>
+    </tr>
+</table>
+<a href="@Url.Action("xoaALLGioHang")"><input class="btn btn-success" type="submit" value="Xác nhận"/></a>

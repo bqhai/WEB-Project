@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "SanPhamADMIN";
+    Layout = "~/Views/Shared/_LayoutPageADMIN.cshtml";
+}
+@using QLMuaBanNem.Models;
+@model List<SanPham>
+
+<h6><a href="@Url.Action("ThemSanPhamADMIN")">them</a></h6>
+<table>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.MaSanPham</td>
+            <td>@x.TenSanPham</td>
+            <td>@x.GiaBan</td>
+            <td>@x.SoLuongTon</td>
+            <td>@x.HinhAnh</td>
+            <td>@x.Loai</td>
+            <td><a href="@Url.Action("XoaSanPham", new { x = @x.MaSanPham})">xoa</a></td>
+        </tr>
+    }
+</table>

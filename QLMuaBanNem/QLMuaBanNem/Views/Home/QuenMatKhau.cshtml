@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "QuenMatKhau";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (TempData["XacNhanMatKhau"] != null)
+{ 
+    <script type="text/javascript">
+        alert("@TempData["XacNhanMatKhau"]");
+    </script>
+}
+<h4>Tìm lại tài khoản</h4>
+<form action="@Url.Action("XLQuenMatKhau")" method="post">
+     @*<ul>
+         <li>Tai khoan: <input type="text" name="txtTaiKhoan"/></li>
+         <li>Mat khau: <input type="password" name="txtMatKhau"/></li>
+         <li>Nhap lai mat khau: <input type="password" name="txtNhapLaiMatKhau"/></li>
+         <li>Email: <input type="text" name="txtEmail"/></li>
+      </ul>
+    <input type="submit" value="Xac nhan"/>*@
+
+    <table>
+        <tr>
+            <td><p><b>Tài khoản: </b></p></td>
+            <td><input class="form-control mr-sm-2" style="width: 200px" type="text" name="txtTaiKhoan"/></td>
+        </tr>
+         <tr>
+            <td><p><b>Mật khẩu: </b></p></td>
+            <td><input class="form-control mr-sm-2" style="width: 200px" type="text" name="txtMatKhau"/></td>
+        </tr>
+         <tr>
+            <td><p><b>Nhập lại mật khẩu: </b></p></td>
+            <td><input class="form-control mr-sm-2" style="width: 200px" type="text" name="txtNhapLaiMatKhau"/></td>
+        </tr>
+        <tr>
+            <td><p><b>Email:  </b></p></td>
+            <td><input class="form-control mr-sm-2" style="width: 200px" type="text" name="txtEmail"/></td>
+        </tr>
+        <tr>
+            <td><br /></td>
+            <td>
+                <input class="btn btn-primary" type="submit" value="Xác nhận"/>
+            </td>
+        </tr>
+    </table>
+</form>

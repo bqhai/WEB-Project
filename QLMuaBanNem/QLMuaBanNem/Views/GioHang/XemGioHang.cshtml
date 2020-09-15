@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "XemGioHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using QLMuaBanNem.Models;
+@model List<GioHang>
+
+@if (TempData["LoiDatHang"] != null)
+{ 
+    <script type="text/javascript">
+        alert("@TempData["LoiDatHang"]");
+    </script>
+}
+
+@*<form>
+@foreach (var s in Model)
+{
+    <div class="row">
+        <a class="col-2">@s.maSP</a>
+        <a class="col-2">@s.tenSP</a>
+        <a class="col-2">@s.donGia</a>
+        <a class="col-2"><img src="~/Content/HinhAnh/@s.hinh" style="height:50px; height:50px"/></a>
+        <a class="col-1">@s.soLuong </a>
+        <a class="col-1"href="@Url.Action("themGioHang", new {ms = @s.maSP})"><input type="button" value=" + "/></a>
+        <a class="col-1" href="@Url.Action("xoaGioHang", new { ms = @s.maSP})">x</a>
+        <a class="col-1" href="@Url.Action("HienThiChiTiet","Home",new { ms = @s.maSP})">Chi tiet</a>
+    </div>
+}
+</form>
+<div>Tong so luong: @ViewBag.TongSoLuong</div>
+<div>  Tong tien: @ViewBag.TongTien</div>*@
+
+
+<h5>Thông Tin Giỏ Hàng</h5>
+<table border="1" style="text-align:center">
+    <tr style="color:#0026ff">
+        <td><b>Mã Sản phẩm</b></td>
+        <td><b>Tên Sản phẩm</b></td>
+        <td><b>Ảnh bìa</b></td>
+        <td><b>Số lượng</b></td>
+        <td><b>Đơn giá</b></td>
+        <td><b>Thêm</b></td>
+        <td><b>Xóa</b></td>
+        <td><b>Chi tiết</b></td>
+    </tr>
+    @foreach (var s in Model)
+    {
+        <tr>
+            <td>@s.maSP</td>
+            <td>@s.tenSP</td>
+            <td><img src="~/Content/HinhAnh/@s.hinh" style="height:50px; height:50px"/></td>
+            <td>@s.soLuong</td>
+            <td>@s.donGia VNĐ</td>
+            <td><a href="@Url.Action("themGioHang", new {ms = @s.maSP})"><input class="btn btn-primary" type="button" value=" + "/></a></td>
+            <td><a href="@Url.Action("xoaGioHang", new { ms = @s.maSP})"><input class="btn btn-danger" type="button" value="Xóa"/></a></td>
+            <td><a href="@Url.Action("HienThiChiTiet","Home",new { ms = @s.maSP})"><input class="btn btn-info" type="button" value="Chi tiết"/></a></td>
+        </tr>
+    }
+    <tr>
+        <td colspan="8"><p><b>Tổng số lượng: @ViewBag.TongSoLuong -- Tổng thành tiền: @ViewBag.TongTien VNĐ</b></p></td>
+    </tr>
+</table>
+<br />
+<a href="@Url.Action("DatHang")"><input class="btn btn-warning" type="submit" name="btnThanhToan" value="Thanh toán"/></a>

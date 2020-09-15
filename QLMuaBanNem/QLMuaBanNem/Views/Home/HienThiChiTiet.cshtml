@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "HienThiChiTiet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using QLMuaBanNem.Models
+@model SanPham
+<h4 style="height:40px">Chi Tiết Sản Phẩm</h4>
+<table>
+    <tr>
+        <td style="width: 350px; height: 350px">
+            <img src="~/Content/HinhAnh/@Model.HinhAnh" width="300", height="300"/></td>
+        <td>
+            <p><b>@Model.TenSanPham</b></p>
+            <p><b>Mô tả: </b>@Model.MoTa</p>
+            <p><b>Giá: </b>@Model.GiaBan VNĐ</p>
+            <a href="@Url.Action("themGioHang", "GioHang", new {ms = @Model.MaSanPham})">
+                <input class="btn bg-warning" name="btnDatHang" value="Đặt mua" /></a>
+            <a href="@Url.Action("SanPham", "Home")">
+                <input class="btn btn-success" name="btnTroVe" value="Trở về" /></a>
+        </td>
+    </tr>
+</table>
